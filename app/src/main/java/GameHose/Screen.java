@@ -1,7 +1,7 @@
 package GameHose;
 
 /**
- * Created by user on 3/21/2017.
+ * Created by douglas on 3/21/2017.
  */
 
 public abstract class Screen {

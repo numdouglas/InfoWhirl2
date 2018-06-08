@@ -1,7 +1,7 @@
 package GameHose;
 
 /**
- * Created by user on 3/21/2017.
+  Created by douglas on 3/21/2017.
  */
 
 import android.annotation.TargetApi;
@@ -16,22 +16,22 @@ import GameHose.Pool.PoolObjectFactory;
 @TargetApi(5)//Message to the compiler telling it we know what were doing(we had set a minimum sdk 0f 3)
 public class MultiTouchHandler implements TouchHandler {
     private static final int MAX_TOUCHPOINTS = 10;
-    boolean[] isTouched = new boolean[MAX_TOUCHPOINTS];
+    private boolean[] isTouched = new boolean[MAX_TOUCHPOINTS];
     int[] touchX = new int[MAX_TOUCHPOINTS];
     int[] touchY = new int[MAX_TOUCHPOINTS];
-    int[] id = new int[MAX_TOUCHPOINTS];
-    Pool<Input.TouchEvent> touchEventPool;
-    List <Input.TouchEvent> touchEvents = new ArrayList <Input.TouchEvent> ();
-    List <Input.TouchEvent> touchEventsBuffer = new ArrayList <Input.TouchEvent> ();
-    float scaleX;
-    float scaleY;
+    private int[] id = new int[MAX_TOUCHPOINTS];
+    private Pool<Input.TouchEvent> touchEventPool;
+    private List <Input.TouchEvent> touchEvents = new ArrayList <Input.TouchEvent> ();
+    private List <Input.TouchEvent> touchEventsBuffer = new ArrayList <Input.TouchEvent> ();
+    private float scaleX;
+    private float scaleY;
     public MultiTouchHandler(View view, float scaleX, float scaleY) {
         PoolObjectFactory<Input.TouchEvent> factory = new Pool.PoolObjectFactory <Input.TouchEvent> () {
             public Input.TouchEvent createObject() {
                 return new Input.TouchEvent();
             }
         };
-        touchEventPool = new Pool<Input.TouchEvent>(factory, 100);
+        touchEventPool = new Pool<>(factory, 100);
         view.setOnTouchListener(this);
         this.scaleX = scaleX;
         this.scaleY = scaleY;

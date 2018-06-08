@@ -1,7 +1,7 @@
 package GameHose;
 
 /**
- * Created by user on 3/31/2017.
+ * Created by douglas on 3/31/2017.
  */
 
 public class Vector2 {

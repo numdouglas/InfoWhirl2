@@ -1,7 +1,7 @@
 package GameHose;
 
 /**
- * Created by user on 4/3/2017.
+ * Created by douglas on 4/3/2017.
  */
 
 public class TextureRegion {//converts texture cordinates to pixel coordinates for easier construction and processing
