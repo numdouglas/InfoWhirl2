@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="45dp"
+        android:text="ENTER YOUR DETAILS" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/passkeylog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="66dp"
+        android:ems="10"
+        android:hint="passkey"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passkeylog"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="LOGIN" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/login"
+        android:layout_marginBottom="10dp"
+        android:text="register" />
+</RelativeLayout>
