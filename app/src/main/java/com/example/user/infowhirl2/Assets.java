@@ -1,50 +1,54 @@
 package com.example.user.infowhirl2;
 
-import org.w3c.dom.Text;
-
 import GameHose.Animation;
 import GameHose.Font;
 import GameHose.GLGame;
 import GameHose.Texture;
 import GameHose.TextureRegion;
 
-/**
- * Created by user on 10/20/2017.
- */
-
 public class Assets {
-    public static Texture items;
-    public static Texture feelButtons;
-    public static Texture background;
-    public static TextureRegion veryButton;
-    public static TextureRegion nullyButton;
-    public static Animation whirl;
-    public static Animation superwhirl;
-    public static TextureRegion whirlS;
     public static TextureRegion back;
-    public static Texture postNew;
-    public static Texture texs;
-    public static TextureRegion postnewRegion;
+    public static Texture background;
     public static TextureRegion backgroundRegion;
-    public  static TextureRegion next;
-    public static TextureRegion spoti;
+    public static Texture feelButtons;
     public static Font font;
+    public static Texture items;
+    public static Texture mat;
+    public static TextureRegion next;
+    public static TextureRegion nullyButton;
+    public static Texture postNew;
+    public static TextureRegion postnewRegion;
+    public static Texture reload;
+    public static TextureRegion reloadregion;
+    public static TextureRegion spoti;
+    public static Animation superwhirl;
+    public static TextureRegion table;
+    public static Texture texs;
+    public static TextureRegion veryButton;
+    public static Animation whirl;
+    public static TextureRegion whirlS;
 
-public static void load(GLGame game){
-    background=new Texture(game,"background2.png");
-    feelButtons=new Texture(game,"feelButtons.png");
-    nullyButton=new TextureRegion(feelButtons,0,32,32,32);
-    veryButton=new TextureRegion(feelButtons,0,0,32,32);
-    backgroundRegion=new TextureRegion(background,0,0,640,960);
-    items=new Texture(game,"watlas.png");
-    texs=new Texture(game,"text.png");
-    back=new TextureRegion(items,192,0,64,64);
-    spoti=new TextureRegion(items,95,12,64,64);
-    whirlS=new TextureRegion(items,0,84,50,50);
-    superwhirl=new Animation(0.2f,new TextureRegion(items,0,84,50,50),new TextureRegion(items,49,86,50,50),new TextureRegion(items,94,84,50,50));
-    whirl=new Animation(0.2f,new TextureRegion(items,0,84,50,50),new TextureRegion(items,144,88,50,50),new TextureRegion(items,207,87,50 ,50));
-    postNew=new Texture(game,"postnew.png");
-    postnewRegion=new TextureRegion(postNew,0,0,64,64);
-    next=new TextureRegion(items,0,15,64,79);
-    font=new Font(texs,0,0,16,8,16);
-}}
+    public static void load(GLGame game) {
+        GLGame gLGame = game;
+        background = new Texture(gLGame, "background2.png");
+        mat = new Texture(gLGame, "pattern.png");
+        reload = new Texture(gLGame, "reload.png");
+        feelButtons = new Texture(gLGame, "feelButtons.png");
+        reloadregion = new TextureRegion(reload, 0.0f, 0.0f, 128.0f, 128.0f);
+        nullyButton = new TextureRegion(feelButtons, 0.0f, 32.0f, 32.0f, 32.0f);
+        veryButton = new TextureRegion(feelButtons, 0.0f, 0.0f, 32.0f, 32.0f);
+        backgroundRegion = new TextureRegion(background, 0.0f, 0.0f, 640.0f, 960.0f);
+        table = new TextureRegion(mat, 0.0f, 0.0f, 320.0f, 480.0f);
+        items = new Texture(gLGame, "watlas.png");
+        texs = new Texture(gLGame, "text.png");
+        back = new TextureRegion(items, 192.0f, 0.0f, 64.0f, 64.0f);
+        spoti = new TextureRegion(items, 95.0f, 12.0f, 64.0f, 64.0f);
+        whirlS = new TextureRegion(items, 0.0f, 84.0f, 50.0f, 50.0f);
+        superwhirl = new Animation(0.2f, new TextureRegion(items, 0.0f, 84.0f, 50.0f, 50.0f), new TextureRegion(items, 49.0f, 86.0f, 50.0f, 50.0f), new TextureRegion(items, 94.0f, 84.0f, 50.0f, 50.0f));
+        whirl = new Animation(0.2f, new TextureRegion(items, 0.0f, 84.0f, 50.0f, 50.0f), new TextureRegion(items, 144.0f, 88.0f, 50.0f, 50.0f), new TextureRegion(items, 207.0f, 87.0f, 50.0f, 50.0f));
+        postNew = new Texture(gLGame, "postnew.png");
+        postnewRegion = new TextureRegion(postNew, 0.0f, 0.0f, 64.0f, 64.0f);
+        next = new TextureRegion(items, 0.0f, 15.0f, 64.0f, 79.0f);
+        font = new Font(texs, 0, 0, 16, 8, 16);
+    }
+}

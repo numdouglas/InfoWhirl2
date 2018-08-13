@@ -11,6 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    packagingOptions{exclude 'META-INF/DEPENDENCIES'}
     buildTypes {
         release {
             minifyEnabled false
@@ -25,6 +26,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
+    compile ('org.apache.httpcomponents:httpmime:4.3')
+    compile ('org.apache.httpcomponents:httpcore:4.4.1')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
