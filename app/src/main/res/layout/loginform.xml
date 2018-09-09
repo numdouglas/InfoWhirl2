@@ -1,55 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="31dp"
-        android:layout_marginTop="45dp"
-        android:text="ENTER YOUR DETAILS" />
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:fontFamily="casual"
+        android:text="Don't Be a Stranger.... Jump in!"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="121dp"
+        android:autoText="true"
+        android:background="@android:color/holo_orange_dark"
+        android:ellipsize="end"
         android:ems="10"
-        android:hint="name"
-        android:inputType="textPersonName" />
+        android:foreground="#fffac4"
+        android:hint="username"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/passkeylog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/name"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="66dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/holo_orange_dark"
+        android:ellipsize="end"
         android:ems="10"
+        android:foreground="#fffac4"
         android:hint="passkey"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passkeylog"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginBottom="136dp"
         android:text="LOGIN" />
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="351dp"
+        android:layout_height="46dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/login"
-        android:layout_marginBottom="10dp"
-        android:text="register" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:height="57dp"
+        android:fontFamily="casual"
+        android:text="Welcome...(W)ho(w) are you?"
+        android:textSize="24sp" />
 </RelativeLayout>

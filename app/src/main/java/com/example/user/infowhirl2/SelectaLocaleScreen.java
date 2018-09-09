@@ -1,31 +1,27 @@
 package com.example.user.infowhirl2;
 
-import GameHose.Camera2D;
-import GameHose.GLScreen;
-import GameHose.Game;
-import GameHose.Input.TouchEvent;
-import GameHose.OverlapTester;
-import GameHose.Rectangle;
-import GameHose.SpriteBatcher;
-import GameHose.Vector2;
+import Hose.Camera2D;
+import Hose.GLScreen;
+import Hose.Game;
+import Hose.Input.TouchEvent;
+import Hose.OverlapTester;
+import Hose.Rectangle;
+import Hose.SpriteBatcher;
+import Hose.Vector2;
 import android.content.Intent;
 import android.os.Looper;
 import java.util.List;
 import javax.microedition.khronos.opengles.GL10;
 
 public class SelectaLocaleScreen extends GLScreen {
-    static int XPlace = 90;
-    static int YPlace = 90;
+    static int XPlace = 0;
+    static int YPlace = 0;
     static InfoWhirl jool;
     static String s_course;
     static String s_hobby;
-    float accelxD;
-    float accelxO;
-    float accelyD;
-    float accelyO;
     SpriteBatcher batcher = new SpriteBatcher(this.glGraphics, 100);
     Camera2D guiCam = new Camera2D(this.glGraphics, 320.0f, 480.0f);
-    Rectangle nextBounds = new Rectangle(256.0f, 0.0f, 64.0f, 64.0f);
+    Rectangle nextBounds = new Rectangle(256.0f,0.0f, 64.0f, 64.0f);
     Rectangle screenBounds = new Rectangle(0.0f, 0.0f, 320.0f, 480.0f);
     Vector2 touchPoint = new Vector2();
     Rectangle whirlBounds = new Rectangle((float) XPlace, (float) YPlace, 64.0f, 64.0f);
@@ -74,8 +70,8 @@ public class SelectaLocaleScreen extends GLScreen {
                         YPlace += (int) this.game.getInput().getAccelY();
                         return;
                     } else if (OverlapTester.pointInRectangle(this.screenBounds, this.touchPoint)) {
-                        this.accelxO = (float) event.x;
-                        this.accelyO = (float) event.y;
+                        /*this.accelxO = (float) event.x;
+                        this.accelyO = (float) event.y;*/
                         return;
                     }
                 }
@@ -83,12 +79,12 @@ public class SelectaLocaleScreen extends GLScreen {
                     this.touchPoint.set((float) event.x, (float) event.y);
                     this.guiCam.touchToWorld(this.touchPoint);
                     if (OverlapTester.pointInRectangle(this.screenBounds, this.touchPoint)) {
-                        this.accelxD = (float) event.x;
+                      /*  this.accelxD = (float) event.x;
                         this.accelyD = (float) event.y;
                         float accelX = this.accelxD - this.accelxO;
                         float accelY = this.accelyD - this.accelyO;
                         this.guiCam.position = new Vector2((this.guiCam.frustumWidth / 2.0f) + accelX, (this.guiCam.frustumHeight / 2.0f) + accelY);
-                        return;
+                       */ return;
                     }
                 }
                 i = i2 + 1;
@@ -102,6 +98,7 @@ public class SelectaLocaleScreen extends GLScreen {
         GL10 gl = this.glGraphics.getGL();
         gl.glClear(16384);
         this.guiCam.setViewportAndMatrices();
+        this.guiCam.position = new Vector2((float) XPlace, (float) YPlace);
         gl.glEnable(3553);
         this.batcher.beginBatch(Assets.background);
         this.batcher.drawSprite(160.0f, 240.0f, 640.0f, 960.0f, Assets.backgroundRegion);
@@ -109,8 +106,11 @@ public class SelectaLocaleScreen extends GLScreen {
         gl.glEnable(3042);
         gl.glBlendFunc(770, 771);
         this.batcher.beginBatch(Assets.items);
-        this.batcher.drawSprite((float) XPlace, (float) YPlace, 64.0f, 64.0f, Assets.whirlS);
-        this.batcher.drawSprite(288.0f, 32.0f, 64.0f, 64.0f, Assets.next);
+        this.batcher.drawSprite((float) XPlace, (float) YPlace,64.0f, 64.0f, Assets.whirlS);
+        this.batcher.drawSprite((float) XPlace+112.0f, (float) YPlace-224.0f, 64.0f, 64.0f, Assets.next);
+        //Move the next button with the movement of the selector
+        nextBounds.lowerLeft.x=(float) XPlace+96.0f;
+        nextBounds.lowerLeft.y=(float) YPlace-240.0f;
         this.batcher.endBatch();
         gl.glDisable(3042);
     }

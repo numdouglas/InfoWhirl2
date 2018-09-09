@@ -7,45 +7,48 @@
     <Button
         android:id="@+id/button"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="118dp"
+        android:layout_height="69dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="55dp"
-        android:layout_marginStart="23dp"
-        android:layout_toEndOf="@+id/hours"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
         android:text="POST" />
 
     <EditText
         android:id="@+id/event"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="37dp"
         android:ems="10"
-        android:hint="EVENT"
-        android:inputType="textPersonName" />
+        android:hint="Give the event a Title"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/details"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/event"
         android:layout_marginTop="47dp"
         android:ems="10"
-        android:hint="DETAILS"
-        android:inputType="textPersonName" />
+        android:hint="Clarify on what exactly is to happen"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/time"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignStart="@+id/button"
-        android:layout_below="@+id/details"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="121dp"
         android:ems="10"
-        android:hint="TIME"
-        android:inputType="textPersonName" />
+        android:hint="Start Time"
+        android:inputType="time" />
 
 </RelativeLayout>

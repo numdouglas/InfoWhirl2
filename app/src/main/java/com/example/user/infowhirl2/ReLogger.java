@@ -29,7 +29,7 @@ public class ReLogger extends Activity {
     private static final String TAG_PID = "passkey";
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_VOTES = "trinkets";
-    private static final String TAG_WHIRLS = "details";
+    private static final String TAG_WHIRLS = "members";
     static String course;
     static int date;
     static String hobby;
@@ -37,7 +37,7 @@ public class ReLogger extends Activity {
     static TextView namelog;
     static String pass;
     static int trinkets;
-    private static String url_all_details = "http://10.42.0.1/infowhirl/confirm_details.php";
+    private static String url_all_details = "http://192.168.137.1/infowhirl/confirm_details.php";
     JSONParser jParser = new JSONParser();
     TextView newGuy;
     private ProgressDialog pDialog;
@@ -45,7 +45,8 @@ public class ReLogger extends Activity {
     JSONArray pivots = null;
     ArrayList<HashMap<String, String>> productsList;
     Button sublog;
-
+//The class that will confirm a users details and move to a new screen if correct. This is done via background activity
+    //due to the erratic nature of the internet
     class LogEmIn extends AsyncTask<String, String, String> {
 
         class C02221 implements Runnable {
@@ -76,18 +77,18 @@ public class ReLogger extends Activity {
             List<NameValuePair> params = new ArrayList();
             params.add(new BasicNameValuePair(ReLogger.TAG_NAME, ReLogger.name));
             params.add(new BasicNameValuePair(ReLogger.TAG_PID, ReLogger.pass));
-            JSONObject json = ReLogger.this.jParser.makeHttpRequest(ReLogger.url_all_details, HttpPost.METHOD_NAME, params);
+            JSONObject json = jParser.makeHttpRequest(ReLogger.url_all_details, "GET", params);
             Log.d("Members confirmed: ", json.toString());
             try {
                 if (json.getInt(ReLogger.TAG_SUCCESS) == 1) {
                     ReLogger.this.pivots = json.getJSONArray(ReLogger.TAG_WHIRLS);
-                    for (int i = 0; i < ReLogger.this.pivots.length(); i++) {
-                        JSONObject c = ReLogger.this.pivots.getJSONObject(i);
+                        JSONObject c = ReLogger.this.pivots.getJSONObject(0);
                         ReLogger.hobby = c.getString(ReLogger.TAG_HOBBY);
+
                         ReLogger.course = c.getString(ReLogger.TAG_COURSE);
                         ReLogger.trinkets = c.getInt(ReLogger.TAG_VOTES);
                         ReLogger.date = c.getInt(ReLogger.TAG_DATUM);
-                    }
+
                     Bundle bundle = new Bundle();
                     bundle.putString("HOBBY", ReLogger.hobby);
                     bundle.putString("COURSE", ReLogger.course);

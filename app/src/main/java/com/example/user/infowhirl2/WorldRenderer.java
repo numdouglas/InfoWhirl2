@@ -1,8 +1,8 @@
 package com.example.user.infowhirl2;
 
-import GameHose.Camera2D;
-import GameHose.GLGraphics;
-import GameHose.SpriteBatcher;
+import Hose.Camera2D;
+import Hose.GLGraphics;
+import Hose.SpriteBatcher;
 import javax.microedition.khronos.opengles.GL10;
 
 public class WorldRenderer {

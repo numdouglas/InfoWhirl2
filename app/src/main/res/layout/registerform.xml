@@ -4,55 +4,60 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="364dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="14dp"
-        android:text="WELCOME" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="casual"
+        android:text="WELCOME. NEVER MISS ANOTHER EVENT."
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/namereg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="62dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="#fffac4"
         android:ems="10"
         android:hint="name"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/passreg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:layout_alignEnd="@+id/namereg"
         android:layout_below="@+id/namereg"
         android:layout_marginTop="45dp"
+        android:background="#fffac4"
         android:ems="10"
         android:hint="passkey"
         android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/hobby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:layout_alignStart="@+id/passreg"
         android:layout_below="@+id/passreg"
         android:layout_marginTop="49dp"
+        android:background="#fffac4"
         android:ems="10"
         android:hint="hobby"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:layout_alignEnd="@+id/hobby"
         android:layout_below="@+id/hobby"
         android:layout_marginTop="40dp"
+        android:background="#fffac4"
         android:ems="10"
         android:hint="course"
         android:inputType="textPersonName" />
@@ -62,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="37dp"
         android:text="REGISTER" />
 </RelativeLayout>

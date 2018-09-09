@@ -1,7 +1,7 @@
 package com.example.user.infowhirl2;
 
-import GameHose.GameObject;
-
+import Hose.GameObject;
+//The whirl object. This is the basic component of information
 public class Whirl extends GameObject {
     public static final float BOB_HEIGHT = 0.8f;
     public static final float BOB_WIDTH = 0.8f;

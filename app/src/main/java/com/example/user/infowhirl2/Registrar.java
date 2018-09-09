@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 public class Registrar extends Activity {
     private static final String TAG_SUCCESS = "success";
-    private static String url_create_product = "http://10.42.0.1/infowhirl/register_new.php";
+    private static String url_create_product = "http://192.168.137.1/infowhirl/register_new.php";
     TextView course;
     TextView hobby;
     TextView inputName;
@@ -30,28 +30,16 @@ public class Registrar extends Activity {
     TextView passkey;
     Button register;
 
-    class C02231 implements OnClickListener {
-        C02231() {
-        }
+    class RegShoot implements OnClickListener {
 
         public void onClick(View view) {
-            new CreateNewProduct().execute(new String[0]);
+            new CreateNewUser().execute(new String[0]);
         }
     }
+//The background activity to register a new user
+    class CreateNewUser extends AsyncTask<String, String, String> {
 
-    class CreateNewProduct extends AsyncTask<String, String, String> {
 
-        class C02241 implements Runnable {
-            C02241() {
-            }
-
-            public void run() {
-                Toast.makeText(Registrar.this.getApplicationContext(), "Registration complete", 0);
-            }
-        }
-
-        CreateNewProduct() {
-        }
 
         protected void onPreExecute() {
             super.onPreExecute();
@@ -72,11 +60,11 @@ public class Registrar extends Activity {
             params.add(new BasicNameValuePair("passkey", passk));
             params.add(new BasicNameValuePair("hobby", hobb));
             params.add(new BasicNameValuePair("course", cours));
-            JSONObject json = Registrar.this.jsonParser.makeHttpRequest(Registrar.url_create_product, HttpPost.METHOD_NAME, params);
+            JSONObject json = jsonParser.makeHttpRequest(url_create_product,"POST", params);
             Log.d("Create Response", json.toString());
             try {
                 if (json.getInt(Registrar.TAG_SUCCESS) == 1) {
-                    Registrar.this.startActivity(new Intent(Registrar.this.getApplicationContext(), ReLogger.class));
+                    startActivity(new Intent(getApplicationContext(), ReLogger.class));
                     Registrar.this.finish();
                 }
             } catch (JSONException e) {
@@ -85,9 +73,7 @@ public class Registrar extends Activity {
             return null;
         }
 
-        protected void onPostExecute(String file_url) {
-            Registrar.this.pDialog.dismiss();
-            Registrar.this.runOnUiThread(new C02241());
+        protected void onPostExecute(String file_url) { pDialog.dismiss();
         }
     }
 
@@ -99,6 +85,6 @@ public class Registrar extends Activity {
         this.course = (TextView) findViewById(R.id.course);
         this.hobby = (TextView) findViewById(R.id.hobby);
         this.register = (Button) findViewById(R.id.registernew);
-        this.register.setOnClickListener(new C02231());
+        this.register.setOnClickListener(new RegShoot());
     }
 }

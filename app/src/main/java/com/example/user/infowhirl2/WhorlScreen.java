@@ -1,11 +1,11 @@
 package com.example.user.infowhirl2;
 
-import GameHose.Camera2D;
-import GameHose.GLScreen;
-import GameHose.Game;
-import GameHose.Input.TouchEvent;
-import GameHose.SpriteBatcher;
-import GameHose.Vector2;
+import Hose.Camera2D;
+import Hose.GLScreen;
+import Hose.Game;
+import Hose.Input.TouchEvent;
+import Hose.SpriteBatcher;
+import Hose.Vector2;
 import com.example.user.infowhirl2.World.WorldListener;
 import java.util.List;
 import javax.microedition.khronos.opengles.GL10;

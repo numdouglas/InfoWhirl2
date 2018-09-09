@@ -13,7 +13,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 
@@ -28,7 +27,8 @@ public class ToGo extends Activity implements OnClickListener {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_TIME = "time";
     static TextView event;
-    private static String url_update_product = "http://10.42.0.1/infowhirl/post_locale.php";
+    //the url for posting the coordinates and details of a new whirl
+    private static String url_update_locale = "http://192.168.137.1/infowhirl/post_locale.php";
     Button button;
     String course;
     TextView details;
@@ -36,7 +36,7 @@ public class ToGo extends Activity implements OnClickListener {
     JSONParser jsonParser = new JSONParser();
     private ProgressDialog pDialog;
     TextView time;
-
+//The class to perform the background activity for adding a new location
     class UpdateLocales extends AsyncTask<String, String, String> {
         UpdateLocales() {
         }
@@ -68,7 +68,7 @@ public class ToGo extends Activity implements OnClickListener {
             params.add(new BasicNameValuePair(ToGo.TAG_CX, coords_x));
             params.add(new BasicNameValuePair(ToGo.TAG_CY, coords_y));
             try {
-                if (ToGo.this.jsonParser.makeHttpRequest(ToGo.url_update_product, HttpPost.METHOD_NAME, params).getInt(ToGo.TAG_SUCCESS) == 1) {
+                if (ToGo.this.jsonParser.makeHttpRequest(ToGo.url_update_locale, "POST", params).getInt(ToGo.TAG_SUCCESS) == 1) {
                     Intent home = new Intent(ToGo.this, InfoWhirl.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("COURSE", ToGo.this.course);
@@ -81,7 +81,7 @@ public class ToGo extends Activity implements OnClickListener {
                     ToGo.this.startActivity(home);
                     ToGo.this.finish();
                 } else {
-                    Toast.makeText(ToGo.this.getApplicationContext(), "Some details are wrong", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(ToGo.this.getApplicationContext(), "Some details are wrong", Toast.LENGTH_SHORT).show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -93,7 +93,7 @@ public class ToGo extends Activity implements OnClickListener {
             ToGo.this.pDialog.dismiss();
         }
     }
-
+//Initialize the view
     public void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.form);
@@ -104,11 +104,10 @@ public class ToGo extends Activity implements OnClickListener {
         this.button.setOnClickListener(this);
         InfoWhirl.isHome = false;
     }
-
+//Buttons click event,Display a message and then execute the background methods on UpdateLocale's implementation of AsyncTask
     public void onClick(View v) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Now they know...");
-        stringBuilder.append(SelectaLocaleScreen.XPlace);
         stringBuilder.append("...");
         Toast.makeText(this, stringBuilder.toString(), Toast.LENGTH_SHORT).show();
         new UpdateLocales().execute(new String[0]);
