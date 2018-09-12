@@ -14,7 +14,7 @@ public class WorldRenderer {
     public WorldRenderer(GLGraphics glGraphics, SpriteBatcher batcher, World world) {
         this.glGraphics = glGraphics;
         this.world = world;
-        this.cam = new Camera2D(glGraphics, 320.0f, 480.0f);
+        this.cam = new Camera2D(glGraphics,InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
         this.batcher = batcher;
     }
 

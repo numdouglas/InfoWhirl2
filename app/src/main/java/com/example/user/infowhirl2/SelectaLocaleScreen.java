@@ -20,9 +20,9 @@ public class SelectaLocaleScreen extends GLScreen {
     static String s_course;
     static String s_hobby;
     SpriteBatcher batcher = new SpriteBatcher(this.glGraphics, 100);
-    Camera2D guiCam = new Camera2D(this.glGraphics, 320.0f, 480.0f);
+    Camera2D guiCam = new Camera2D(this.glGraphics, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
     Rectangle nextBounds = new Rectangle(256.0f,0.0f, 64.0f, 64.0f);
-    Rectangle screenBounds = new Rectangle(0.0f, 0.0f, 320.0f, 480.0f);
+    Rectangle screenBounds = new Rectangle(0.0f, 0.0f, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
     Vector2 touchPoint = new Vector2();
     Rectangle whirlBounds = new Rectangle((float) XPlace, (float) YPlace, 64.0f, 64.0f);
 
@@ -43,14 +43,14 @@ public class SelectaLocaleScreen extends GLScreen {
         if (XPlace < 0) {
             XPlace = 0;
         }
-        if (XPlace > 640) {
-            XPlace = 320;
+        if (XPlace > (InfoWhirl.getScreenWidth()*2)) {
+            XPlace = InfoWhirl.getScreenWidth();
         }
         if (YPlace < 0) {
             YPlace = 0;
         }
-        if (YPlace > 960) {
-            YPlace = 480;
+        if (YPlace > InfoWhirl.getScreenHeight()*2) {
+            YPlace =InfoWhirl.getScreenHeight();
         }
         XPlace += (int) this.game.getInput().getAccelX();
         YPlace += (int) this.game.getInput().getAccelY();
@@ -101,16 +101,17 @@ public class SelectaLocaleScreen extends GLScreen {
         this.guiCam.position = new Vector2((float) XPlace, (float) YPlace);
         gl.glEnable(3553);
         this.batcher.beginBatch(Assets.background);
-        this.batcher.drawSprite(160.0f, 240.0f, 640.0f, 960.0f, Assets.backgroundRegion);
+        this.batcher.drawSprite(InfoWhirl.getScreenWidth()/2, InfoWhirl.getScreenHeight()/2, InfoWhirl.getScreenWidth()*4,       InfoWhirl.getScreenHeight()*4, Assets.backgroundRegion);
         this.batcher.endBatch();
         gl.glEnable(3042);
         gl.glBlendFunc(770, 771);
         this.batcher.beginBatch(Assets.items);
         this.batcher.drawSprite((float) XPlace, (float) YPlace,64.0f, 64.0f, Assets.whirlS);
-        this.batcher.drawSprite((float) XPlace+112.0f, (float) YPlace-224.0f, 64.0f, 64.0f, Assets.next);
+        this.batcher.drawSprite((float) XPlace+((InfoWhirl.getScreenWidth()/2)-32), (float) YPlace-((InfoWhirl.getScreenHeight()/2)-32), 64.0f, 64.0f, Assets.next);
+
         //Move the next button with the movement of the selector
-        nextBounds.lowerLeft.x=(float) XPlace+96.0f;
-        nextBounds.lowerLeft.y=(float) YPlace-240.0f;
+        nextBounds.lowerLeft.x=(float) XPlace+((InfoWhirl.getScreenWidth()/2)-48);//-48
+        nextBounds.lowerLeft.y=(float) YPlace-((InfoWhirl.getScreenHeight()/2)-16);//-16
         this.batcher.endBatch();
         gl.glDisable(3042);
     }

@@ -46,8 +46,8 @@ public class Assets {
         //the button for upvoting
         veryButton = new TextureRegion(feelButtons, 0.0f, 0.0f, 32.0f, 32.0f);
         //bind the background texture to the screen
-        backgroundRegion = new TextureRegion(background, 0.0f, 0.0f, 640.0f, 960.0f);
-        table = new TextureRegion(mat, 0.0f, 0.0f, 320.0f, 480.0f);
+        backgroundRegion = new TextureRegion(background, 0.0f, 0.0f, InfoWhirl.getScreenWidth()*2, InfoWhirl.getScreenHeight()*2);
+        table = new TextureRegion(mat, 0.0f, 0.0f, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
         //load the spritesheet
         items = new Texture(gLGame, "watlas.png");
         //load the spritesheet for bird animations

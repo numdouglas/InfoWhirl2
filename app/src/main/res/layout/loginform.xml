@@ -5,6 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:background="#fffac4"
+        android:ems="10"
+        android:hint="username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/passkeylog"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="206dp"
+        android:background="#fffac4"
+        android:ems="10"
+        android:hint="passkey"
+        android:inputType="textPersonName" />
+
+
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
@@ -18,36 +43,6 @@
         android:textSize="20sp"
         android:textStyle="italic" />
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
-        android:autoText="true"
-        android:background="@android:color/holo_orange_dark"
-        android:ellipsize="end"
-        android:ems="10"
-        android:foreground="#fffac4"
-        android:hint="username"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/passkeylog"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:background="@android:color/holo_orange_dark"
-        android:ellipsize="end"
-        android:ems="10"
-        android:foreground="#fffac4"
-        android:hint="passkey"
-        android:inputType="textPassword"
-        android:textStyle="italic" />
-
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
@@ -59,13 +54,13 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="351dp"
+        android:layout_width="wrap_content"
         android:layout_height="46dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="31dp"
+        android:layout_above="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-92dp"
         android:height="57dp"
-        android:fontFamily="casual"
         android:text="Welcome...(W)ho(w) are you?"
-        android:textSize="24sp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
 </RelativeLayout>

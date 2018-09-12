@@ -4,6 +4,7 @@ import Hose.GLGame;
 import Hose.Screen;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -299,5 +300,14 @@ public class InfoWhirl extends GLGame {
 
     public void onPause() {
         super.onPause();
+    }
+
+
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
 }

@@ -134,7 +134,7 @@ public class MooScreen extends GLScreen {
     public MooScreen(Game game) {
         super(game);
         MoreClicked = true;
-        this.guiCam = new Camera2D(this.glGraphics, 320.0f, 480.0f);
+        this.guiCam = new Camera2D(this.glGraphics, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
         this.touchPoint = new Vector2();
         this.worldListener = new C02751();
         world = new World(this.worldListener);
@@ -213,7 +213,7 @@ public class MooScreen extends GLScreen {
         gl.glEnable(3042);
         gl.glBlendFunc(770, 771);
         this.batcher.beginBatch(Assets.mat);
-        this.batcher.drawSprite(160.0f, 240.0f, 640.0f, 960.0f, Assets.table);
+        this.batcher.drawSprite(160.0f, 240.0f, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight(), Assets.table);
         this.batcher.endBatch();
         this.batcher.beginBatch(Assets.items);
         this.batcher.drawSprite(32.0f, 32.0f, 64.0f, 64.0f, Assets.back);

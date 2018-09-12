@@ -100,7 +100,8 @@ public class ReLogger extends Activity {
                     home.putExtras(bundle);
                     ReLogger.this.startActivity(home);
                 }
-            } catch (JSONException e) {
+            }
+            catch (JSONException e) {
                 e.printStackTrace();
             }
             return null;
@@ -117,7 +118,7 @@ public class ReLogger extends Activity {
         }
 
         public void onClick(View v) {
-            new LogEmIn().execute(new String[0]);
+            new LogEmIn().execute();
         }
     }
 

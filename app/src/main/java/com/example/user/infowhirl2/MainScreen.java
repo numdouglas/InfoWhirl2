@@ -27,7 +27,7 @@ public class MainScreen extends GLScreen {
     private float accelyD;
     private float accelyO;
     SpriteBatcher batcher = new SpriteBatcher(this.glGraphics, 100);
-    Camera2D guiCam = new Camera2D(this.glGraphics, 320.0f, 480.0f);
+    Camera2D guiCam = new Camera2D(this.glGraphics, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
     Rectangle postNewBounds;
     List<Rectangle> postedBounds = new ArrayList();
     Rectangle reloadBounds;
@@ -49,9 +49,9 @@ public class MainScreen extends GLScreen {
         super(game);
         InfoWhirl.isHome = true;
         this.renderer = new WorldRenderer(this.glGraphics, this.batcher, this.world);
-        this.screenBounds = new Rectangle(0.0f, 0.0f, 320.0f, 480.0f);
+        this.screenBounds = new Rectangle(0.0f, 0.0f, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
         this.postNewBounds = new Rectangle(256.0f, 0.0f, 64.0f, 64.0f);
-        this.reloadBounds = new Rectangle(128.0f, 416.0f, 64.0f, 64.0f);
+        this.reloadBounds = new Rectangle(InfoWhirl.getScreenWidth()-192, InfoWhirl.getScreenHeight()-64, 64.0f, 64.0f);
         if (InfoWhirl.getYyes().size() > 0) {
             for (int i = 0; i < InfoWhirl.getYyes().size(); i++) {
                 this.postedBounds.add(new Rectangle((float) (((Integer) InfoWhirl.getXxes().get(i)).intValue() - 32), (float) (((Integer) InfoWhirl.getYyes().get(i)).intValue() - 32), 64.0f, 64.0f));
@@ -163,22 +163,23 @@ and drag events
         gl.glEnable(3553);
         this.guiCam.setViewportAndMatrices();
         this.batcher.beginBatch(Assets.background);
-        this.batcher.drawSprite(160.0f, 240.0f, 640.0f, 960.0f, Assets.backgroundRegion);
+        this.batcher.drawSprite(InfoWhirl.getScreenWidth()/2,InfoWhirl.getScreenHeight()/2, InfoWhirl.getScreenWidth()*4,InfoWhirl.getScreenHeight()*4, Assets.backgroundRegion);
+
         this.batcher.endBatch();
         gl.glEnable(3042);
         gl.glBlendFunc(770, 771);
         this.batcher.beginBatch(Assets.reload);
-        this.batcher.drawSprite(this.accelX+ 160.0f, (this.accelY +((this.zoomfactor-10)*16))+ 448.0f, 64.0f, 64.0f, Assets.reloadregion);
+        this.batcher.drawSprite(this.accelX+ (InfoWhirl.getScreenWidth())/2, (this.accelY +((this.zoomfactor-10)*16))+ InfoWhirl.getScreenHeight()-32, 64.0f, 64.0f, Assets.reloadregion);
         this.batcher.endBatch();
         this.batcher.beginBatch(Assets.postNew);
-        this.batcher.drawSprite(this.accelX + 288.0f+(((this.zoomfactor-10)*16)), this.accelY + 32.0f-(((this.zoomfactor-10)*16)), 64.0f, 64.0f, Assets.postnewRegion);
+        this.batcher.drawSprite(this.accelX + InfoWhirl.getScreenWidth()-32f+(((this.zoomfactor-10)*16)), this.accelY + 32.0f-(((this.zoomfactor-10)*16)), 64.0f, 64.0f, Assets.postnewRegion);
        /*The zoomfactor is at an original value of 10, we'll decrease it by 10 and multiply by the distance variance
        factor of 16
         */
-        this.postNewBounds.lowerLeft.x = this.accelX + 256.0f+((this.zoomfactor-10)*16);
+        this.postNewBounds.lowerLeft.x = this.accelX + InfoWhirl.getScreenWidth()-64+((this.zoomfactor-10)*16);
         this.postNewBounds.lowerLeft.y = this.accelY + 0.0f-((this.zoomfactor-10)*16);
-        this.reloadBounds.lowerLeft.x = this.accelX + 128.0f;
-        this.reloadBounds.lowerLeft.y = this.accelY + 416.0f+((this.zoomfactor-10)*16);
+        this.reloadBounds.lowerLeft.x = this.accelX + (InfoWhirl.getScreenWidth())-258f;
+        this.reloadBounds.lowerLeft.y = this.accelY + InfoWhirl.getScreenHeight()-64f+((this.zoomfactor-10)*16);
         this.batcher.endBatch();
         this.batcher.beginBatch(Assets.birdy);
         if (InfoWhirl.getYyes().size() > 0) {
@@ -187,9 +188,9 @@ and drag events
             for (int i = 0; i < InfoWhirl.getYyes().size(); i++) {
                 try {
                     Whirl whirlo = (Whirl) this.world.whirls.get(i);
-                    avg_votes=Math.round(((Integer) InfoWhirl.getUpVotes().get(i)).intValue() - ((Integer) InfoWhirl.getDownvotes().get(i)).intValue() / 2);
+                    avg_votes=Math.round(((Integer) InfoWhirl.getUpVotes().get(i)).intValue() / 1+((Integer) InfoWhirl.getDownvotes().get(i)).intValue());
 
-                    if (avg_votes<= 2 || ((Integer) InfoWhirl.getUpVotes().get(i)).intValue()<=7) {
+                    if ((avg_votes<= 2) || ((Integer) InfoWhirl.getUpVotes().get(i)).intValue()<=7) {
                         dispose();
                         this.batcher.drawSprite((float) ((Integer) InfoWhirl.getXxes().get(i)).intValue(), (float) ((Integer) InfoWhirl.getYyes().get(i)).intValue(), 50.0f, 50.0f, Assets.whirl.getKeyFrame(whirlo.stateTime, 0));
                     }

@@ -14,7 +14,7 @@ public class WhorlScreen extends GLScreen {
     static final int GAME_READY = 0;
     static final int GAME_RUNNING = 1;
     SpriteBatcher batcher = new SpriteBatcher(this.glGraphics, 1000);
-    Camera2D guiCam = new Camera2D(this.glGraphics, 320.0f, 480.0f);
+    Camera2D guiCam = new Camera2D(this.glGraphics, InfoWhirl.getScreenWidth(), InfoWhirl.getScreenHeight());
     int lastScore = 0;
     WorldRenderer renderer = new WorldRenderer(this.glGraphics, this.batcher, this.world);
     String scoreString = "score: 0";
