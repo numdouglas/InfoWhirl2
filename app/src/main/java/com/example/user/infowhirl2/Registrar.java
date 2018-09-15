@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 public class Registrar extends Activity {
     private static final String TAG_SUCCESS = "success";
-    private static String url_create_product = "http://192.168.137.1/infowhirl/register_new.php";
+    private static String url_create_product = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/register_new.php";
     TextView course;
     TextView hobby;
     TextView inputName;

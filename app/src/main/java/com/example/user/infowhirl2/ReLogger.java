@@ -37,7 +37,7 @@ public class ReLogger extends Activity {
     static TextView namelog;
     static String pass;
     static int trinkets;
-    private static String url_all_details = "http://192.168.137.1/infowhirl/confirm_details.php";
+    private static String url_all_details = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/confirm_details.php";
     JSONParser jParser = new JSONParser();
     TextView newGuy;
     private ProgressDialog pDialog;

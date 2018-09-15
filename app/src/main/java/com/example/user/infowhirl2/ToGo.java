@@ -28,7 +28,7 @@ public class ToGo extends Activity implements OnClickListener {
     private static final String TAG_TIME = "time";
     static TextView event;
     //the url for posting the coordinates and details of a new whirl
-    private static String url_update_locale = "http://192.168.137.1/infowhirl/post_locale.php";
+    private static String url_update_locale = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/post_locale.php";
     Button button;
     String course;
     TextView details;

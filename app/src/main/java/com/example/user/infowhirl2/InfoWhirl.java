@@ -1,4 +1,4 @@
-package com.example.user.infowhirl2;
+/*Insert the server's ip adress here, I used my computer's ip address in this case*/package com.example.user.infowhirl2;
 
 import Hose.GLGame;
 import Hose.Screen;
@@ -57,9 +57,9 @@ public class InfoWhirl extends GLGame {
     static int u_trinkets;
     static List<Integer> upvotes = new ArrayList();
     //connect to the servers files by accessing it with the ipaddress
-    private static String url_all_products = "http://192.168.137.1/infowhirl/get_all_postings.php";
-    private static String url_set_bucket = "http://192.168.137.1/infowhirl/set_bucket.php";
-    private static String url_trash = "http://192.168.137.1/infowhirl/trash.php";
+    private static String url_all_products = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/get_all_postings.php";
+    private static String url_set_bucket = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/set_bucket.php";
+    private static String url_trash = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/trash.php";
     //upvotes and downvotes
     static int vote_d = 0;
     static int vote_u = 0;

@@ -25,8 +25,8 @@ public class MooScreen extends GLScreen {
     private static final String TAG_SUCCESS = "success";
     static boolean backclicked;
 
-    private static String url_set_bucket = "http://192.168.137.1/infowhirl/set_bucket.php";
-    private static String url_vote = "http://192.168.137.1/infowhirl/update_votes.php";
+    private static String url_set_bucket = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/set_bucket.php";
+    private static String url_vote = "http:///*Insert the server's ip adress here, I used my computer's ip address in this case*//infowhirl/update_votes.php";
     static World world;
     int OpinionY;
     Rectangle backbounds;
